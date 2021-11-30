@@ -16,7 +16,7 @@ bobrza_locations = bobrza_locations[["nazwa_zasobu", "lat", "lon","icon","color"
 
 
 #ładowanie pliku z punktami, za pomocą których wyznaczona zostanie trasa
-location2='D:/streamlit/route.csv'
+location2=open("D:/streamlit/bobrza1.csv")
 route_locations=pd.read_csv(location2)
 route_locations=route_locations[["lat","lon"]]
 
