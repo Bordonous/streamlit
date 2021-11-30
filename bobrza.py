@@ -10,17 +10,18 @@ from folium.plugins import Fullscreen, minimap
 
 st.set_page_config(layout="centered", initial_sidebar_state="expanded")
 #ładowanie pliku z punktami turystycznymi
-location='D:/streamlit/bobrza1.csv'
+dir_name = os.path.abspath(os.path.dirname(__file__))
+location = os.path.join(dir_name, 'bobrza1.csv')
 bobrza_locations = pd.read_csv(location)
 bobrza_locations = bobrza_locations[["nazwa_zasobu", "lat", "lon","icon","color","type"]]
 
 
 #ładowanie pliku z punktami, za pomocą których wyznaczona zostanie trasa
-location2='D:/streamlit/route.csv'
+location2 = os.path.join(dir_name, 'route.csv')
 route_locations=pd.read_csv(location2)
 route_locations=route_locations[["lat","lon"]]
 
-json1=f"D:/streamlit/bobrza.geojson"
+#json1=f"D:/streamlit/bobrza.geojson"
 
 map = folium.Map(location=[bobrza_locations.lat.mean(), bobrza_locations.lon.mean()], zoom_start=12, control_scale=True, zoom_control=True)
 
