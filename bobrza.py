@@ -11,7 +11,7 @@ from folium.plugins import Fullscreen, minimap
 st.set_page_config(layout="centered", initial_sidebar_state="expanded")
 #ładowanie pliku z punktami turystycznymi
 location='https://github.com/Bordonous/streamlit/blob/f6727fe18895e13f5462da8d9f28161fe8b33273/bobrza1.csv'
-bobrza_locations = pd.read_csv(bobrza1.csv)
+bobrza_locations = pd.read_csv(location)
 bobrza_locations = bobrza_locations[["nazwa_zasobu", "lat", "lon","icon","color","type"]]
 
 
