@@ -17,7 +17,7 @@ bobrza_locations = pd.read_csv(location)
 bobrza_locations = bobrza_locations[["nazwa_zasobu", "lat", "lon","icon","color","type"]]
 
 def _max_width_():
-    max_width_str = f"max-width: 1200px;"
+    max_width_str = f"max-width: 1100px;"
     st.markdown(
         f"""
     <style>
@@ -34,7 +34,7 @@ st.header("Trasa rowerowa 'Mała pętla doliny bobrzy' oraz jej zasoby")
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
 st.markdown("""
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:     #87CEEB;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:     #5db9de;">
   <a class="navbar-brand" href="#" target="_blank"><h5><b>Dolina Bobrzy</b></h5></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -60,12 +60,21 @@ st.markdown(
     """
 <style>
 
+
 h5 { font-size: 20px;
      font-color: #d1ce24;
      color: white;
      text-shadow: 1px 1px black;
-    }
-
+}
+block-container css-18e3th9 eknhn3m2 {
+    width: 80vh;
+    
+}
+.block-container .markdown-text-container {
+    font-family: monospace;
+}
+.reportview-container css-1wrcr25 eknhn3m0
+{height: 95vh;}
 
 .Widget>label {
     color: white;
@@ -94,8 +103,9 @@ footer {
 header .decoration {
     background-image: none;
 }
-.css-1d391kg {
-    height: 95%;
+.block-container css-18e3th9 eknhn3m2
+{
+    margin-left: 2px;
 }
 
 </style>
@@ -103,8 +113,17 @@ header .decoration {
     unsafe_allow_html=True,
 )
 
-
-
+st.markdown(
+    f'''
+        <style>
+            .sidebar .sidebar-content {{
+                
+                position: absolute;
+            }}
+        </style>
+    ''',
+    unsafe_allow_html=True
+)
 
 #ładowanie pliku z punktami, za pomocą których wyznaczona zostanie trasa
 location2 = os.path.join(dir_name, 'route.csv')
@@ -196,7 +215,6 @@ elif (choice_selected=='gastronomia'):
 map
             
     
-
         
 footer="""<style>
 .footer {
@@ -204,15 +222,20 @@ position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: #87ceeb;
+background-color: #5db9de;
 color: #242424;
 text-align: center;
-height: 5%;
+height: 5vh;
 text-shadow: 1px 1px black
+}
+.css-ubs8vo {
+    height: 95vh;
+    position: absolute;
+    width: 30vh;
 }
 p{
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 </style>
@@ -223,14 +246,8 @@ p{
 st.markdown(footer,unsafe_allow_html=True)        
         
 
-    
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
     
 
 
